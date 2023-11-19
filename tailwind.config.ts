@@ -9,12 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'mobile-board-pattern': "url('/suggestions/mobile/background-header.png')",
+        'tablet-board-pattern': "url('/suggestions/tablet/background-header.png')",
+        'desktop-board-pattern': "url('/suggestions/desktop/background-header.png')",
       },
-    },
+      colors: {
+        'primary-purple': '#AD1FEA',
+        'primary-blue': '#4661E6',
+        'dark-blue': '#4661E6',
+        'blueish-grey': '#F2F4FF',
+        'light-grey': '#F7F8FD',
+        'night-sky-blue': '#3A4374',
+        'grayish-blue': '#647196',
+        'orange': '#F49F85',
+        'sky-blue': '#62BCFA',
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }
 export default config
