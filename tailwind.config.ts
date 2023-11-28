@@ -4,14 +4,14 @@ const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
       backgroundImage: {
         'mobile-board-pattern': "url('/suggestions/mobile/background-header.png')",
         'tablet-board-pattern': "url('/suggestions/tablet/background-header.png')",
-        'desktop-board-pattern': "url('/suggestions/desktop/background-header.png')",
+        'desktop-board-pattern': "url('/suggestions/desktop/background-header.png')"
       },
       colors: {
         'primary-purple': '#AD1FEA',
@@ -21,11 +21,14 @@ const config: Config = {
         'light-grey': '#F7F8FD',
         'night-sky-blue': '#3A4374',
         'grayish-blue': '#647196',
-        'orange': '#F49F85',
-        'sky-blue': '#62BCFA',
+        orange: '#F49F85',
+        'sky-blue': '#62BCFA'
+      },
+      borderRadius: {
+        primary: '10px'
       }
     }
   },
   plugins: []
-}
+};
 export default config
