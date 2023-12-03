@@ -1,21 +1,30 @@
+'use client';
 import clsx from 'clsx';
 
+type ButtonVariant = 'primary' | 'secondary' | 'info' | 'error';
+
 export interface ButtonProps {
-  text: string;
-  isSelected?: boolean;
+  variant: ButtonVariant;
   className?: string;
+  children?: React.ReactNode;
+  onClick:() => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, isSelected, className }) => (
-  <div
-    className={clsx(
-      'rounded-primary focus:ring-ring max-w-14 inline-flex cursor-pointer items-center truncate border-transparent bg-blueish-grey px-4  py-1.5 text-sm font-semibold text-primary-blue transition-colors focus:outline-none   focus:ring-2 focus:ring-offset-2 ',
-      isSelected && 'bg-primary-blue text-white',
-      className && className
-    )}
-  >
-    {text}
-  </div>
-);
+
+const Button: React.FC<ButtonProps> = ({ variant, className, children,onClick }) => {
+  const buttonStyle:Record<ButtonVariant,string> = {
+    primary: 'bg-primary-purple hover:bg-primary-light-purple',
+    secondary: 'bg-dark-blue hover:bg-light-blue',
+    info: 'bg-night-sky-blue hover:bg-night-sky-blue-light',
+    error: 'bg-error hover:bg-error-light'
+  }
+  
+  return <button className={clsx('text-white rounded-primary font-bold text-sm px-4 py-2.5 cursor-pointer',buttonStyle[variant],className)} onClick={onClick}>
+    {children}
+  </button>;
+
+
+}
+
 
 export default Button;

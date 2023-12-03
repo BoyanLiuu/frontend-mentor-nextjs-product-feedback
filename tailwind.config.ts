@@ -15,17 +15,25 @@ const config: Config = {
       },
       colors: {
         'primary-purple': '#AD1FEA',
+        'primary-light-purple': '#C75AF6',
         'primary-blue': '#4661E6',
         'dark-blue': '#4661E6',
+        'light-blue':'#7C91F9',
         'blueish-grey': '#F2F4FF',
         'light-grey': '#F7F8FD',
         'night-sky-blue': '#3A4374',
+        'night-sky-blue-light': '#656EA3',
+        'error':'#D73737',
+        'error-light':'#E98888',
         'grayish-blue': '#647196',
         orange: '#F49F85',
         'sky-blue': '#62BCFA'
       },
       borderRadius: {
         primary: '10px'
+      },
+        boxShadow: {
+        'sortBybox': 'box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.35)',
       }
     }
   },
