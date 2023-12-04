@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'phone': '375px',
+        'tablet': '780px',
+        'desktop': '1200px',
+      },
       backgroundImage: {
         'mobile-board-pattern': "url('/suggestions/mobile/background-header.png')",
         'tablet-board-pattern': "url('/suggestions/tablet/background-header.png')",

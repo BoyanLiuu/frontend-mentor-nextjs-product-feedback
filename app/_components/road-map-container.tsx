@@ -26,7 +26,7 @@ const RoadMapContainer = () => {
     }];
 
     return (
-        <div className='rounded-primary flex   flex-col h-[12rem] w-[14.4rem] bg-white p-6'>
+        <div className='rounded-primary flex   flex-col h-[12rem] w-[14.4rem] bg-white p-6 tablet:h-[11.2rem] tablet:w-[14rem]'>
             <div className="flex justify-between w-full items-center mb-6">
                 <span className="font-bold text-night-sky-blue text-lg inline-block">Roadmap</span>
                 <Link href="/roadmap" className="underline text-dark-blue text-sm font-semibold">

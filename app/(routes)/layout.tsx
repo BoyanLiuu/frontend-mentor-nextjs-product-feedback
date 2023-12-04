@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Jost } from 'next/font/google';
 import './globals.css';
-import MobileHeader from '../_components/mobile-header';
+import HomepageHeader from '../_components/home-page-header';
 import ActionBar from '../_components/action-bar';
+import clsx from 'clsx';
 
 const font = Jost({ subsets: ['latin'] });
 
@@ -14,11 +15,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={font.className}>
-      <MobileHeader/>
-      <ActionBar/>
-        {children}
-        </body>
+      <body className={clsx('bg-light-grey tablet:px-10  pb-14 tablet:pt-14  desktop:px-[10.4rem] desktop:py-[5.9rem]', font.className)}>
+        <div className='w-full h-full flex flex-col desktop:flex-row'>
+          <HomepageHeader />
+          <div className='desktop:ml-8 desktop:flex-1'>
+          <ActionBar numberOfSuggestions={6} />
+          {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }

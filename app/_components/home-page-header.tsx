@@ -6,12 +6,27 @@ import RoadMapContainer from "./road-map-container";
 
 
 
-const MobileHeader: React.FC = () => {
+const HomepageHeader: React.FC = () => {
 
     const [showSidebar, setShowSidebar] = useState(false);
 
     return <div className="relative">
-        <div className="w-full  bg-mobile-board-pattern flex items-center  justify-between bg-no-repeat px-6 h-[4.75rem] bg-cover">
+
+        {/* Table & Desktop Header */}
+        <div className="justify-between hidden tablet:flex desktop:flex-col">
+        <div className="text-white flex flex-col justify-end bg-tablet-board-pattern desktop:desktop-board-pattern  bg-no-repeat   bg-cover tablet:h-[11.2rem] tablet:w-[14rem] rounded-primary pl-6 pb-6">
+                <div className="text-xl font-bold">
+                    Frontend Mentor
+                </div>
+                <div className="text-base font-medium">Feedback Board</div>
+            </div>
+        <BadgesContainer />
+                <RoadMapContainer />
+        </div>
+
+
+        {/* Mobile Header */}
+        <div className="w-full bg-mobile-board-pattern flex items-center  justify-between bg-no-repeat px-6 h-[4.75rem] bg-cover tablet:hidden">
             <div className="text-white inline-block">
                 <div className="text-base font-bold">
                     Frontend Mentor
@@ -46,4 +61,4 @@ const MobileHeader: React.FC = () => {
 }
 
 
-export default MobileHeader;
+export default HomepageHeader;
