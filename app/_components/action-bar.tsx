@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState } from "react";
 import Button from "./button";
 import { SORT_BY_TYPE_ARRAY } from '../constants/sort';
-
+import { useRouter } from 'next/navigation'
 
 export interface ActionBarProps {
     numberOfSuggestions:number;
@@ -13,6 +13,8 @@ const ActionBar: React.FC<ActionBarProps> = ({
     numberOfSuggestions
 }) => {
     const [showSortByDropDown, setShowSortByDropDown] = useState(false);
+    const router = useRouter();
+
     return <div
         className='h-14 bg-night-sky-blue px-6 flex justify-between items-center text-white relative tablet:h-[4.5rem] tablet:px-3 tablet:mt-10  desktop:mt-0 tablet:rounded-primary tablet:justify-start'>
         <div className='hidden tablet:flex  items-center'>
@@ -56,9 +58,7 @@ const ActionBar: React.FC<ActionBarProps> = ({
         ))}
     </div>
        } 
-        <Button  className='tablet:ml-auto'  variant={"primary"} onClick={function (): void {
-            throw new Error("Function not implemented.");
-        }}>
+        <Button  className='tablet:ml-auto'  variant={"primary"} onClick={() => router.push('/feedback/add')}>
             + Add Feedback</Button>
     </div>
 }

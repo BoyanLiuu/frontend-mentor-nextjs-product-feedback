@@ -9,7 +9,7 @@ export interface CommentsCounterButtonProps {
 const CommentsCounterButton: React.FC<CommentsCounterButtonProps> = ({ numberOfComments, id }) => (
   <div>
 
-    <Link href={`/discussion/${id}`} className=" text-base font-bold flex items-center">
+    <Link href={`/feedback/${id}`} className=" text-base font-bold flex items-center">
       <Image
         src="/shared/icon-comments.svg"
         width={18}

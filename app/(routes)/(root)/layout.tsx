@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Jost } from 'next/font/google';
 import './globals.css';
-import HomepageHeader from '../_components/home-page-header';
-import ActionBar from '../_components/action-bar';
+import HomepageHeader from '../../_components/home-page-header';
+import ActionBar from '../../_components/action-bar';
 import clsx from 'clsx';
 
 const font = Jost({ subsets: ['latin'] });
