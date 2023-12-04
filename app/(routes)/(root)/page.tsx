@@ -1,9 +1,9 @@
 'use client';
-import BadgesContainer from '../../_components/badges-container';
-import CardTemplate from '../../_components/card-template';
-import HomepageHeader from '../../_components/home-page-header';
-import NoFeedbacks from '../../_components/no-feedbacks';
-import RoadMapContainer from '../../_components/road-map-container';
+import BadgesContainer from '@/app/_components/badges-container';
+import CardTemplate from '@/app/_components/card-template';
+import HomepageHeader from '@/app/_components/home-page-header';
+import NoFeedbacks from '@/app/_components/no-feedbacks';
+import RoadMapContainer from '@/app/_components/road-map-container';
 
 
 export default function Home() {

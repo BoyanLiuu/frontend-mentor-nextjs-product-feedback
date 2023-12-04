@@ -1,3 +1,5 @@
+import '@/app/(routes)/globals.css';
+
 export default function Layout({
     children,
   }: {

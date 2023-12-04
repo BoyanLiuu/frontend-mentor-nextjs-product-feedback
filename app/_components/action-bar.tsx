@@ -58,7 +58,7 @@ const ActionBar: React.FC<ActionBarProps> = ({
         ))}
     </div>
        } 
-        <Button  className='tablet:ml-auto'  variant={"primary"} onClick={() => router.push('/feedback/add')}>
+        <Button  className='tablet:ml-auto'  variant={"primary"} onClick={() => router.push('/feedback/create')}>
             + Add Feedback</Button>
     </div>
 }

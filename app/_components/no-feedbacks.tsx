@@ -18,7 +18,7 @@ const NoFeedbacks: React.FC = () => {
       There is no feedback yet.
     </h1>
     <span className='mb-6 text-sm font-normal text-grayish-blue tablet:text-base tablet:mb-12'>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</span>
-    <Button variant='primary' onClick={() => router.push('/feedback/add')}>
+    <Button variant='primary' onClick={() => router.push('/feedback/create')}>
       + Add Feedback
     </Button>
   </div>

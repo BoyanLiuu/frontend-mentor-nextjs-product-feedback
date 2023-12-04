@@ -1,4 +1,4 @@
 export default function Page() {
-    return <h1>Here is add feedback page</h1>;
+    return <h1 className="">Here is add feedback page</h1>;
   }
   
