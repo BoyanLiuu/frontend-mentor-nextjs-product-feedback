@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
-import { Jost } from 'next/font/google';
-import '@/app/(routes)/globals.css';
-import HomepageHeader from '@/app/_components/home-page-header';
-import ActionBar from '@/app/_components/action-bar';
 import clsx from 'clsx';
+import type { Metadata } from 'next';
+import { Jost } from 'next/font/google';
+
+import '@/app/(routes)/globals.css';
+import ActionBar from '@/app/_components/action-bar';
+import HomepageHeader from '@/app/_components/home-page-header';
 
 const font = Jost({ subsets: ['latin'] });
 
@@ -15,12 +16,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={clsx('bg-light-grey tablet:px-10  pb-14 tablet:pt-14  desktop:px-[10.4rem] desktop:py-[5.9rem]', font.className)}>
-        <div className='w-full h-full flex flex-col desktop:flex-row'>
+      <body
+        className={clsx(
+          'bg-light-grey pb-14  tablet:px-10 tablet:pt-14  desktop:px-[10.4rem] desktop:py-[5.9rem]',
+          font.className
+        )}
+      >
+        <div className='flex h-full w-full flex-col desktop:flex-row'>
           <HomepageHeader />
           <div className='desktop:ml-8 desktop:flex-1'>
-          <ActionBar numberOfSuggestions={6} />
-          {children}
+            <ActionBar numberOfSuggestions={6} />
+            {children}
           </div>
         </div>
       </body>

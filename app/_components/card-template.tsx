@@ -1,10 +1,12 @@
 'use client';
 import clsx from 'clsx';
+
 import { FeatureType } from '../types/feature';
 import { RoadmapType } from '../types/road-map';
+
 import Badge from './badge';
-import LikeCounterButton from './like-counter-button';
 import CommentsCounterButton from './comment-counter-button';
+import LikeCounterButton from './like-counter-button';
 
 export interface CardTemplateProps {
     roadMapType?: RoadmapType;
