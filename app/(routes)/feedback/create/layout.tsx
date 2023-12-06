@@ -5,5 +5,5 @@ export default function Layout({
   }: {
     children: React.ReactNode
   }) {
-    return <div>{children}</div>
+    return <div className='bg-light-grey px-6 pt-8 pb-20 w-full h-full flex justify-center'>{children}</div>
   }
