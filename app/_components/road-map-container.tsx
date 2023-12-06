@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { RoadmapType } from "../types/road-map";
 
 export type RoadMapConfig = {
@@ -26,25 +27,23 @@ const RoadMapContainer = () => {
     }];
 
     return (
-        <div className='rounded-primary flex   flex-col h-[12rem] w-[14.4rem] bg-white p-6 tablet:h-[11.2rem] tablet:w-[14rem]'>
-            <div className="flex justify-between w-full items-center mb-6">
-                <span className="font-bold text-night-sky-blue text-lg inline-block">Roadmap</span>
-                <Link href="/roadmap" className="underline text-dark-blue text-sm font-semibold">
-                    View
-                </Link>
-            </div>
-            <div className=" w-full flex flex-col gap-y-2">
-                {ROAD_MAP_CONFIGS.map(({ color, count, type }) => (
-                    <div>
-                        <div className={`w-3 h-3 rounded-primary  inline-block bg-${color} mr-4`} />
-                        <span className="text-base text-grayish-blue">{type}</span>
-                        <div className="inline-block float-right">{count}</div>
-                    </div>
-                ))}
-            </div>
-
+      <div className='flex h-[12rem]   w-[14.4rem] flex-col rounded-primary bg-white p-6 tablet:h-[11.2rem] tablet:w-[14rem]'>
+        <div className='mb-6 flex w-full items-center justify-between'>
+          <span className='inline-block text-lg font-bold text-night-sky-blue'>Roadmap</span>
+          <Link href='/roadmap' className='text-sm font-semibold text-dark-blue underline'>
+            View
+          </Link>
         </div>
-
+        <div className=' flex w-full flex-col gap-y-2'>
+          {ROAD_MAP_CONFIGS.map(({ color, count, type }) => (
+            <div key={type}>
+              <div className={`inline-block h-3 w-3  rounded-primary bg-${color} mr-4`} />
+              <span className='text-base text-grayish-blue'>{type}</span>
+              <div className='float-right inline-block'>{count}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     );
 };
 
