@@ -17,8 +17,8 @@ export default function Page() {
         />
         <span className='text-sm text-grayish-blue'>Go Back</span>
       </Link>
-      <div className='h-full w-full rounded-primary bg-white px-6'>
-        <CreateEditFeedbackForm isEditingForm={false} />
+      <div className='w-full rounded-primary bg-white px-6 pb-6 pt-11'>
+        <CreateEditFeedbackForm isEditingForm={true} />
       </div>
     </div>
   );

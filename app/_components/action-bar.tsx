@@ -4,15 +4,18 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { SORT_BY_TYPE_ARRAY } from '../constants/sort';
+import { SortByType } from '../types/sort';
 
 import Button from './button';
+import { Dropdown, DropdownButton, DropdownContent, DropdownItem } from './drop-down';
 
 export interface ActionBarProps {
   numberOfSuggestions: number;
 }
 
 const ActionBar: React.FC<ActionBarProps> = ({ numberOfSuggestions }) => {
-  const [showSortByDropDown, setShowSortByDropDown] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const [sortByStatus, setSortByStatus] = useState<SortByType>('Least Comments');
   const router = useRouter();
 
   return (
@@ -29,49 +32,47 @@ const ActionBar: React.FC<ActionBarProps> = ({ numberOfSuggestions }) => {
           {numberOfSuggestions > 0 ? `${numberOfSuggestions} Suggestions` : `1 Suggestion`}
         </span>
       </div>
-      <div
-        className='cursor-pointer text-sm'
-        onClick={() => setShowSortByDropDown((prev) => !prev)}
-      >
-        <span>Sort by : </span>
-        <span className='font-bold'>Most Upvotes</span>
-        <Image
-          src={
-            showSortByDropDown
-              ? '/shared/icon-arrow-up-white.svg'
-              : '/shared/icon-arrow-down-white.svg'
-          }
-          width={12}
-          height={6}
-          alt={showSortByDropDown ? 'open sort dropdown' : 'close sort dropdown'}
-          className=' ml-2 inline-block'
-        />
-      </div>
-      {showSortByDropDown && (
-        <div className='absolute top-[4.5rem] h-[12rem] w-[16rem] rounded-primary bg-white text-base font-normal text-grayish-blue shadow-[0_0_40_-7px_rgba(55,63,104,0.65)]'>
+
+      <Dropdown setOpen={setOpen} isOpen={isOpen}>
+        <DropdownButton>
+          <div className='cursor-pointer text-sm'>
+            <span>Sort by : </span>
+            <span className='font-bold'>Most Upvotes</span>
+            <Image
+              src={isOpen ? '/shared/icon-arrow-up-white.svg' : '/shared/icon-arrow-down-white.svg'}
+              width={12}
+              height={6}
+              alt={isOpen ? 'open sort dropdown' : 'close sort dropdown'}
+              className=' ml-2 inline-block'
+            />
+          </div>
+        </DropdownButton>
+
+        <DropdownContent>
           {SORT_BY_TYPE_ARRAY.map((sortByValue) => (
-            <div
-              key={sortByValue}
-              className='[&:not(:last-child)]:border-night-sky-blue/0.25 flex items-center justify-between px-6 py-3 [&:not(:last-child)]:border-b'
-            >
-              <span
-                onClick={() => setShowSortByDropDown(false)}
-                className=' inline-block w-full cursor-pointer text-base font-normal text-grayish-blue hover:text-primary-purple  '
+            <DropdownItem key={sortByValue} onClick={() => setSortByStatus(sortByValue)}>
+              <div
+                key={sortByValue}
+                className='[&:not(:last-child)]:border-night-sky-blue/0.25 flex items-center justify-between border-b px-6 py-3 [&:not(:last-child)]:border-b'
               >
-                {sortByValue}
-              </span>
-              <Image
-                onClick={() => setShowSortByDropDown((prev) => !prev)}
-                src='/shared/icon-check.svg'
-                width={12}
-                height={6}
-                alt={showSortByDropDown ? 'open sort dropdown' : 'close sort dropdown'}
-                className='ml-2 inline-block cursor-pointer'
-              />
-            </div>
+                <span className=' inline-block w-full cursor-pointer text-base font-normal text-grayish-blue hover:text-primary-purple  '>
+                  {sortByValue}
+                </span>
+                {sortByStatus === sortByValue && (
+                  <Image
+                    src='/shared/icon-check.svg'
+                    width={12}
+                    height={6}
+                    alt={isOpen ? 'open sort dropdown' : 'close sort dropdown'}
+                    className='ml-2 inline-block cursor-pointer'
+                  />
+                )}
+              </div>
+            </DropdownItem>
           ))}
-        </div>
-      )}
+        </DropdownContent>
+      </Dropdown>
+
       <Button
         className='tablet:ml-auto'
         variant={'primary'}

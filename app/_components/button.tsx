@@ -19,9 +19,19 @@ const Button: React.FC<ButtonProps> = ({ variant, className, children,onClick })
     error: 'bg-error hover:bg-error-light'
   }
   
-  return <button className={clsx('text-white rounded-primary font-bold text-sm px-4 py-2.5 cursor-pointer tablet:px-6 tablet:py-3',buttonStyle[variant],className)} onClick={onClick}>
-    {children}
-  </button>;
+  return (
+    <button
+      type='button'
+      className={clsx(
+        'cursor-pointer rounded-primary px-4 py-2.5 text-sm font-bold text-white tablet:px-6 tablet:py-3',
+        buttonStyle[variant],
+        className
+      )}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 
 
 }
