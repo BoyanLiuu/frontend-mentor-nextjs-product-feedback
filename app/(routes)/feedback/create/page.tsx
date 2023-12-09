@@ -6,8 +6,8 @@ import CreateEditFeedbackForm from '@/app/_components/create-edit-feedback-form'
 
 export default function Page() {
   return (
-    <div className='flex flex-col'>
-      <Link href='/' className='mb-14 font-bold'>
+    <div className=' flex flex-col'>
+      <Link href='/' className='mb-14 font-bold desktop:mb-16'>
         <Image
           src='/shared/icon-arrow-left.svg'
           width={10}
@@ -17,7 +17,14 @@ export default function Page() {
         />
         <span className='text-sm text-grayish-blue'>Go Back</span>
       </Link>
-      <div className='w-full rounded-primary bg-white px-6 pb-6 pt-11'>
+      <div className='relative  w-full rounded-primary bg-white px-6 pb-6 pt-11 desktop:p-10'>
+        <Image
+          src={'/shared/icon-new-feedback.svg'}
+          width={40}
+          height={40}
+          alt='new feedback'
+          className='absolute top-[-1.25rem]'
+        />
         <CreateEditFeedbackForm isEditingForm={true} />
       </div>
     </div>

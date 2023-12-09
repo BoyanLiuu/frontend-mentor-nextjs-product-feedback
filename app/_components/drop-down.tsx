@@ -64,7 +64,11 @@ export const DropdownButton: React.FC<DropdownBaseProps> = ({ children }) => {
     setOpen(!isOpen);
   }
 
-  return <div onClick={toggleOpen}>{children}</div>;
+  return (
+    <div onClick={toggleOpen} className='relative z-0'>
+      {children}
+    </div>
+  );
 };
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({ children, onClick }) => {
@@ -90,7 +94,7 @@ export const DropdownContent: React.FC<DropdownBaseProps> = ({ children }) => {
   return (
     <div
       className={clsx(
-        'shadow-dropdown absolute top-[3rem] w-[16rem] rounded-primary bg-white text-base font-normal text-grayish-blue',
+        'absolute top-[4rem]  z-10 w-full rounded-primary bg-white text-base font-normal text-grayish-blue shadow-dropdown',
         !isOpen && 'hidden'
       )}
     >
