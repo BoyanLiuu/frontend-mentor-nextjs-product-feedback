@@ -56,7 +56,7 @@ const CreateEditFeedbackForm: React.FC<CreateEditFeedbackFormProps> = ({
             value=''
             placeholder='Write your title here...'
             aria-describedby='title-description'
-            className='light-grey  mt-4 w-full resize-none rounded-md border border-gray-300 bg-light-grey px-2
+            className='light-grey  mt-4 w-full resize-none rounded-md border border-gray-300 bg-light-grey px-4
                py-3 text-sm outline-none focus:border-blue-500 focus:ring-blue-500'
           />
         </div>

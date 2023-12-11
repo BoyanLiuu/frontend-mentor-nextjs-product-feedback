@@ -1,15 +1,23 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
-import FeedbackCard from '@/app/_components/feedback-card';
-import NoFeedbacks from '@/app/_components/no-feedbacks';
+import RoadMapCard from './roadmap-card';
 
-export default function Home() {
+export interface RoadMapListProps {
+  title: string;
+  description: string;
+}
+const RoadMapList: React.FC<RoadMapListProps> = ({ title, description }) => {
   const router = useRouter();
   return (
-    <main className=' h-full w-full px-6 tablet:px-0'>
-      <div className='flex  flex-col gap-y-4  pt-8'>
-        <FeedbackCard
+    <div className='w-full'>
+      <div>
+        <h1 className='text-lg font-bold text-night-sky-blue'>{title}</h1>
+        <span className='text-grayish-blue'>{description}</span>
+      </div>
+      <div className='mt-6 flex w-full flex-col  gap-y-4 pb-24 desktop:gap-y-6'>
+        <RoadMapCard
+          roadMapType='In-Progress'
           title='Add tags for solutions'
           description='Easier to search for solutions based on a specific stack.'
           type='Enhancement'
@@ -18,7 +26,8 @@ export default function Home() {
           numberOfDiscussion={2}
           numberOfLikes={112}
         />
-        <FeedbackCard
+        <RoadMapCard
+          roadMapType='In-Progress'
           title='Add tags for solutions'
           description='Easier to search for solutions based on a specific stack.'
           type='Enhancement'
@@ -26,7 +35,8 @@ export default function Home() {
           numberOfDiscussion={2}
           numberOfLikes={112}
         />
-        <FeedbackCard
+        <RoadMapCard
+          roadMapType='In-Progress'
           title='Add tags for solutions'
           description='Easier to search for solutions based on a specific stack.'
           type='Enhancement'
@@ -34,16 +44,9 @@ export default function Home() {
           numberOfDiscussion={2}
           numberOfLikes={112}
         />
-        <FeedbackCard
-          title='Add tags for solutions'
-          description='Easier to search for solutions based on a specific stack.'
-          type='Enhancement'
-          onCounterClick={() => {}}
-          numberOfDiscussion={2}
-          numberOfLikes={112}
-        />
-        <NoFeedbacks />
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default RoadMapList;

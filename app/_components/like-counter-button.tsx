@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export interface LikeCounterButtonProps {
+  isRoadMapButton?: boolean;
   numberOfLikes: number;
   onClick: () => void;
   className?: string;
@@ -12,7 +13,8 @@ export interface LikeCounterButtonProps {
 const LikeCounterButton: React.FC<LikeCounterButtonProps> = ({
   numberOfLikes,
   onClick,
-  className
+  className,
+  isRoadMapButton
 }) => {
   const [isButtonHighlight, setIsButtonHighlight] = useState(false);
   return (
@@ -22,8 +24,9 @@ const LikeCounterButton: React.FC<LikeCounterButtonProps> = ({
         onClick();
       }}
       className={clsx(
-        'flex h-8 w-fit cursor-pointer items-center rounded-primary bg-blueish-grey px-3.5 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 tablet:mr-10 tablet:h-fit   tablet:flex-col tablet:p-2 ',
+        'flex h-8 w-fit cursor-pointer items-center rounded-primary bg-blueish-grey px-3.5 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
         className?.length !== 0 && className,
+        !isRoadMapButton && 'tablet:mr-10 tablet:h-fit tablet:flex-col tablet:p-2',
         isButtonHighlight && 'bg-dark-blue'
       )}
     >
@@ -35,8 +38,9 @@ const LikeCounterButton: React.FC<LikeCounterButtonProps> = ({
       />
       <span
         className={clsx(
-          'ml-2.5 inline-block text-sm font-bold text-night-sky-blue tablet:ml-0 tablet:mt-1.5',
-          isButtonHighlight && 'text-white'
+          'ml-2.5 inline-block text-sm font-bold text-night-sky-blue ',
+          isButtonHighlight && 'text-white',
+          !isRoadMapButton && 'tablet:ml-0 tablet:mt-1.5'
         )}
       >
         {numberOfLikes}

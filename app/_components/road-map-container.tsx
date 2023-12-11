@@ -30,7 +30,10 @@ const RoadMapContainer = () => {
       <div className='flex h-[12rem]   w-[14.4rem] flex-col rounded-primary bg-white p-6 tablet:h-[11.2rem] tablet:w-[14rem]'>
         <div className='mb-6 flex w-full items-center justify-between'>
           <span className='inline-block text-lg font-bold text-night-sky-blue'>Roadmap</span>
-          <Link href='/roadmap' className='text-sm font-semibold text-dark-blue underline'>
+          <Link
+            href='/roadmap/In-progress'
+            className='text-sm font-semibold text-dark-blue underline'
+          >
             View
           </Link>
         </div>

@@ -1,13 +1,15 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import CreateEditFeedbackForm from '@/app/_components/create-edit-feedback-form';
 
 export default function Page() {
+  const router = useRouter();
+
   return (
     <div className=' flex flex-col'>
-      <Link href='/' className='mb-14 font-bold desktop:mb-16'>
+      <button onClick={() => router.back()} className='mb-14 font-bold desktop:mb-16'>
         <Image
           src='/shared/icon-arrow-left.svg'
           width={10}
@@ -16,7 +18,8 @@ export default function Page() {
           className='mr-4 inline-block'
         />
         <span className='text-sm text-grayish-blue'>Go Back</span>
-      </Link>
+      </button>
+
       <div className='relative  w-full rounded-primary bg-white px-6 pb-6 pt-11 desktop:p-10'>
         <Image
           src={'/shared/icon-new-feedback.svg'}
