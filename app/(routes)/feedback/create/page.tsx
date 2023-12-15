@@ -9,7 +9,7 @@ export default function Page() {
 
   return (
     <div className=' flex flex-col'>
-      <button onClick={() => router.back()} className='mb-14 font-bold desktop:mb-16'>
+      <button onClick={() => router.back()} className='mb-14 w-fit font-bold desktop:mb-16'>
         <Image
           src='/shared/icon-arrow-left.svg'
           width={10}

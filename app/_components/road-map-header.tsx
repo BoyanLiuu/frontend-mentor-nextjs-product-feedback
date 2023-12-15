@@ -16,7 +16,7 @@ export default function RoadMapHeader() {
     <>
       <div className='flex w-full justify-between bg-night-sky-blue p-6 tablet:mb-8 tablet:rounded-primary tablet:p-8'>
         <div className='flex flex-col font-bold text-white'>
-          <button onClick={() => router.back()}>
+          <button onClick={() => router.back()} className='flex items-center'>
             <Image
               src='/shared/icon-arrow-left-white.svg'
               width={10}

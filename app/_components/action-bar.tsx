@@ -1,13 +1,13 @@
 'use client';
-import Image from 'next/image'
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useState } from 'react';
 
 import { SORT_BY_TYPE_ARRAY } from '../constants/sort';
 import { SortByType } from '../types/sort';
 
-import Button from './button';
+import ActionDropDown from './actions-drop-down';
 import { Dropdown, DropdownButton, DropdownContent, DropdownItem } from './drop-down';
+import { UserAvatar } from './user-avatar';
 
 export interface ActionBarProps {
   numberOfSuggestions: number;
@@ -16,7 +16,6 @@ export interface ActionBarProps {
 const ActionBar: React.FC<ActionBarProps> = ({ numberOfSuggestions }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [sortByStatus, setSortByStatus] = useState<SortByType>('Least Comments');
-  const router = useRouter();
 
   return (
     <div className='relative flex h-14 items-center justify-between bg-night-sky-blue px-6 text-white tablet:mt-10 tablet:h-[4.5rem] tablet:justify-start  tablet:rounded-primary tablet:px-3 desktop:mt-0'>
@@ -73,13 +72,13 @@ const ActionBar: React.FC<ActionBarProps> = ({ numberOfSuggestions }) => {
         </DropdownContent>
       </Dropdown>
 
-      <Button
-        className='tablet:ml-auto'
-        variant={'primary'}
-        onClick={() => router.push('/feedback/create')}
-      >
-        + Add Feedback
-      </Button>
+      <div className='ml-auto flex '>
+        <div className='mr-2'>
+          <UserAvatar name={''} />
+        </div>
+
+        <ActionDropDown />
+      </div>
     </div>
   );
 };

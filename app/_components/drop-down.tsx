@@ -8,6 +8,7 @@ type DropdownContextType = {
 
 type DropdownBaseProps = {
   children: ReactNode;
+  className?: string;
 };
 
 type DropdownItemProps = DropdownBaseProps & { onClick: () => void };
@@ -88,14 +89,15 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({ children, onClick })
 
 // dropdown content for displaying dropdown
 
-export const DropdownContent: React.FC<DropdownBaseProps> = ({ children }) => {
+export const DropdownContent: React.FC<DropdownBaseProps> = ({ children, className }) => {
   const { isOpen } = useContext(DropdownContext); // get the context
 
   return (
     <div
       className={clsx(
-        'absolute top-[4rem]  z-10 w-full rounded-primary bg-white text-base font-normal text-grayish-blue shadow-dropdown',
-        !isOpen && 'hidden'
+        'absolute top-[4rem]  z-10 w-full min-w-[12rem] rounded-primary bg-white text-base font-normal text-grayish-blue shadow-dropdown',
+        !isOpen && 'hidden',
+        className && className
       )}
     >
       {children}

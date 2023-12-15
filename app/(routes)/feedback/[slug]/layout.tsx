@@ -8,11 +8,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang='en'>
       <body
         className={clsx(
-          'flex h-screen w-screen overflow-x-hidden  bg-light-grey px-6 pb-[5.5rem] pt-6',
+          'flex h-screen w-screen justify-center overflow-x-hidden bg-light-grey px-6 pb-[5.5rem] pt-6',
           font.className
         )}
       >
-        {' '}
         <main>{children}</main>
       </body>
     </html>
